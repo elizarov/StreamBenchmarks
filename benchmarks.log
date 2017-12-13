@@ -1,0 +1,595 @@
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testBuildSequence
+
+# Run progress: 0.00% complete, ETA 00:04:00
+# Fork: 1 of 1
+# Warmup Iteration   1: 8.896 ms/op
+# Warmup Iteration   2: 7.846 ms/op
+# Warmup Iteration   3: 7.803 ms/op
+# Warmup Iteration   4: 7.855 ms/op
+# Warmup Iteration   5: 7.834 ms/op
+Iteration   1: 7.847 ms/op
+Iteration   2: 7.893 ms/op
+Iteration   3: 7.929 ms/op
+Iteration   4: 7.885 ms/op
+Iteration   5: 7.903 ms/op
+Iteration   6: 7.888 ms/op
+Iteration   7: 7.865 ms/op
+Iteration   8: 7.882 ms/op
+Iteration   9: 7.872 ms/op
+Iteration  10: 7.860 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testBuildSequence":
+  7.882 ±(99.9%) 0.035 ms/op [Average]
+  (min, avg, max) = (7.847, 7.882, 7.929), stdev = 0.023
+  CI (99.9%): [7.847, 7.918] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testChannelPipeline
+
+# Run progress: 6.25% complete, ETA 00:03:49
+# Fork: 1 of 1
+# Warmup Iteration   1: 1003.030 ms/op
+# Warmup Iteration   2: 1043.607 ms/op
+# Warmup Iteration   3: 819.687 ms/op
+# Warmup Iteration   4: 880.833 ms/op
+# Warmup Iteration   5: 767.430 ms/op
+Iteration   1: 949.910 ms/op
+Iteration   2: 775.257 ms/op
+Iteration   3: 831.541 ms/op
+Iteration   4: 778.611 ms/op
+Iteration   5: 916.090 ms/op
+Iteration   6: 970.035 ms/op
+Iteration   7: 1005.224 ms/op
+Iteration   8: 911.029 ms/op
+Iteration   9: 896.369 ms/op
+Iteration  10: 938.795 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testChannelPipeline":
+  897.286 ±(99.9%) 118.483 ms/op [Average]
+  (min, avg, max) = (775.257, 897.286, 1005.224), stdev = 78.369
+  CI (99.9%): [778.803, 1015.770] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testFlowable
+
+# Run progress: 12.50% complete, ETA 00:04:36
+# Fork: 1 of 1
+# Warmup Iteration   1: 3.340 ms/op
+# Warmup Iteration   2: 2.734 ms/op
+# Warmup Iteration   3: 2.569 ms/op
+# Warmup Iteration   4: 2.553 ms/op
+# Warmup Iteration   5: 2.612 ms/op
+Iteration   1: 2.608 ms/op
+Iteration   2: 2.631 ms/op
+Iteration   3: 2.554 ms/op
+Iteration   4: 2.596 ms/op
+Iteration   5: 2.546 ms/op
+Iteration   6: 2.548 ms/op
+Iteration   7: 2.573 ms/op
+Iteration   8: 2.571 ms/op
+Iteration   9: 2.583 ms/op
+Iteration  10: 2.560 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testFlowable":
+  2.577 ±(99.9%) 0.042 ms/op [Average]
+  (min, avg, max) = (2.546, 2.577, 2.631), stdev = 0.028
+  CI (99.9%): [2.535, 2.619] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testFlowableFromCoroPublish
+
+# Run progress: 18.75% complete, ETA 00:03:57
+# Fork: 1 of 1
+# Warmup Iteration   1: 23.329 ms/op
+# Warmup Iteration   2: 21.379 ms/op
+# Warmup Iteration   3: 21.357 ms/op
+# Warmup Iteration   4: 21.300 ms/op
+# Warmup Iteration   5: 21.477 ms/op
+Iteration   1: 21.561 ms/op
+Iteration   2: 21.398 ms/op
+Iteration   3: 21.639 ms/op
+Iteration   4: 21.649 ms/op
+Iteration   5: 21.842 ms/op
+Iteration   6: 21.779 ms/op
+Iteration   7: 21.628 ms/op
+Iteration   8: 21.386 ms/op
+Iteration   9: 21.577 ms/op
+Iteration  10: 21.604 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testFlowableFromCoroPublish":
+  21.606 ±(99.9%) 0.216 ms/op [Average]
+  (min, avg, max) = (21.386, 21.606, 21.842), stdev = 0.143
+  CI (99.9%): [21.391, 21.822] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testFlowableThread
+
+# Run progress: 25.00% complete, ETA 00:03:30
+# Fork: 1 of 1
+# Warmup Iteration   1: 4.102 ms/op
+# Warmup Iteration   2: 3.538 ms/op
+# Warmup Iteration   3: 3.251 ms/op
+# Warmup Iteration   4: 3.245 ms/op
+# Warmup Iteration   5: 3.246 ms/op
+Iteration   1: 3.252 ms/op
+Iteration   2: 3.285 ms/op
+Iteration   3: 3.268 ms/op
+Iteration   4: 3.266 ms/op
+Iteration   5: 3.269 ms/op
+Iteration   6: 3.266 ms/op
+Iteration   7: 3.273 ms/op
+Iteration   8: 3.276 ms/op
+Iteration   9: 3.264 ms/op
+Iteration  10: 3.272 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testFlowableThread":
+  3.269 ±(99.9%) 0.013 ms/op [Average]
+  (min, avg, max) = (3.252, 3.269, 3.285), stdev = 0.009
+  CI (99.9%): [3.256, 3.282] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testFlowableWithCoroFilter
+
+# Run progress: 31.25% complete, ETA 00:03:07
+# Fork: 1 of 1
+# Warmup Iteration   1: 240.441 ms/op
+# Warmup Iteration   2: 220.555 ms/op
+# Warmup Iteration   3: 220.046 ms/op
+# Warmup Iteration   4: 220.668 ms/op
+# Warmup Iteration   5: 220.632 ms/op
+Iteration   1: 220.307 ms/op
+Iteration   2: 221.707 ms/op
+Iteration   3: 220.987 ms/op
+Iteration   4: 220.326 ms/op
+Iteration   5: 220.120 ms/op
+Iteration   6: 221.464 ms/op
+Iteration   7: 221.268 ms/op
+Iteration   8: 220.515 ms/op
+Iteration   9: 220.945 ms/op
+Iteration  10: 220.433 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testFlowableWithCoroFilter":
+  220.807 ±(99.9%) 0.825 ms/op [Average]
+  (min, avg, max) = (220.120, 220.807, 221.707), stdev = 0.546
+  CI (99.9%): [219.982, 221.633] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testFlux
+
+# Run progress: 37.50% complete, ETA 00:02:50
+# Fork: 1 of 1
+# Warmup Iteration   1: 3.120 ms/op
+# Warmup Iteration   2: 2.264 ms/op
+# Warmup Iteration   3: 2.256 ms/op
+# Warmup Iteration   4: 2.254 ms/op
+# Warmup Iteration   5: 2.273 ms/op
+Iteration   1: 2.265 ms/op
+Iteration   2: 2.267 ms/op
+Iteration   3: 2.271 ms/op
+Iteration   4: 2.275 ms/op
+Iteration   5: 2.272 ms/op
+Iteration   6: 2.267 ms/op
+Iteration   7: 2.269 ms/op
+Iteration   8: 3.573 ms/op
+Iteration   9: 6.685 ms/op
+Iteration  10: 6.708 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testFlux":
+  3.285 ±(99.9%) 2.787 ms/op [Average]
+  (min, avg, max) = (2.265, 3.285, 6.708), stdev = 1.843
+  CI (99.9%): [0.498, 6.072] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testFluxFromCoroPublish
+
+# Run progress: 43.75% complete, ETA 00:02:31
+# Fork: 1 of 1
+# Warmup Iteration   1: 20.724 ms/op
+# Warmup Iteration   2: 18.515 ms/op
+# Warmup Iteration   3: 18.486 ms/op
+# Warmup Iteration   4: 18.547 ms/op
+# Warmup Iteration   5: 18.765 ms/op
+Iteration   1: 18.920 ms/op
+Iteration   2: 19.006 ms/op
+Iteration   3: 18.554 ms/op
+Iteration   4: 18.576 ms/op
+Iteration   5: 18.779 ms/op
+Iteration   6: 18.729 ms/op
+Iteration   7: 18.583 ms/op
+Iteration   8: 18.645 ms/op
+Iteration   9: 18.751 ms/op
+Iteration  10: 18.786 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testFluxFromCoroPublish":
+  18.733 ±(99.9%) 0.227 ms/op [Average]
+  (min, avg, max) = (18.554, 18.733, 19.006), stdev = 0.150
+  CI (99.9%): [18.506, 18.959] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testFluxThread
+
+# Run progress: 50.00% complete, ETA 00:02:12
+# Fork: 1 of 1
+# Warmup Iteration   1: 5.793 ms/op
+# Warmup Iteration   2: 4.968 ms/op
+# Warmup Iteration   3: 4.789 ms/op
+# Warmup Iteration   4: 4.791 ms/op
+# Warmup Iteration   5: 4.796 ms/op
+Iteration   1: 4.797 ms/op
+Iteration   2: 4.810 ms/op
+Iteration   3: 4.818 ms/op
+Iteration   4: 4.828 ms/op
+Iteration   5: 4.815 ms/op
+Iteration   6: 4.822 ms/op
+Iteration   7: 4.813 ms/op
+Iteration   8: 4.811 ms/op
+Iteration   9: 4.820 ms/op
+Iteration  10: 4.812 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testFluxThread":
+  4.815 ±(99.9%) 0.013 ms/op [Average]
+  (min, avg, max) = (4.797, 4.815, 4.828), stdev = 0.008
+  CI (99.9%): [4.802, 4.827] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testFluxWithCoroFilter
+
+# Run progress: 56.25% complete, ETA 00:01:55
+# Fork: 1 of 1
+# Warmup Iteration   1: 265.341 ms/op
+# Warmup Iteration   2: 231.721 ms/op
+# Warmup Iteration   3: 231.731 ms/op
+# Warmup Iteration   4: 232.406 ms/op
+# Warmup Iteration   5: 232.891 ms/op
+Iteration   1: 231.812 ms/op
+Iteration   2: 231.411 ms/op
+Iteration   3: 231.631 ms/op
+Iteration   4: 231.322 ms/op
+Iteration   5: 231.486 ms/op
+Iteration   6: 231.166 ms/op
+Iteration   7: 231.770 ms/op
+Iteration   8: 231.927 ms/op
+Iteration   9: 231.829 ms/op
+Iteration  10: 231.959 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testFluxWithCoroFilter":
+  231.631 ±(99.9%) 0.412 ms/op [Average]
+  (min, avg, max) = (231.166, 231.631, 231.959), stdev = 0.272
+  CI (99.9%): [231.220, 232.043] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testGenerateSequence
+
+# Run progress: 62.50% complete, ETA 00:01:39
+# Fork: 1 of 1
+# Warmup Iteration   1: 6.001 ms/op
+# Warmup Iteration   2: 5.598 ms/op
+# Warmup Iteration   3: 5.355 ms/op
+# Warmup Iteration   4: 5.336 ms/op
+# Warmup Iteration   5: 5.360 ms/op
+Iteration   1: 5.337 ms/op
+Iteration   2: 5.372 ms/op
+Iteration   3: 5.390 ms/op
+Iteration   4: 5.393 ms/op
+Iteration   5: 5.379 ms/op
+Iteration   6: 5.379 ms/op
+Iteration   7: 5.360 ms/op
+Iteration   8: 5.402 ms/op
+Iteration   9: 5.393 ms/op
+Iteration  10: 5.422 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testGenerateSequence":
+  5.383 ±(99.9%) 0.035 ms/op [Average]
+  (min, avg, max) = (5.337, 5.383, 5.422), stdev = 0.023
+  CI (99.9%): [5.347, 5.418] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testJavaStream
+
+# Run progress: 68.75% complete, ETA 00:01:22
+# Fork: 1 of 1
+# Warmup Iteration   1: 5.460 ms/op
+# Warmup Iteration   2: 4.693 ms/op
+# Warmup Iteration   3: 4.640 ms/op
+# Warmup Iteration   4: 4.642 ms/op
+# Warmup Iteration   5: 4.643 ms/op
+Iteration   1: 4.672 ms/op
+Iteration   2: 4.673 ms/op
+Iteration   3: 4.677 ms/op
+Iteration   4: 4.722 ms/op
+Iteration   5: 4.672 ms/op
+Iteration   6: 4.678 ms/op
+Iteration   7: 4.671 ms/op
+Iteration   8: 4.686 ms/op
+Iteration   9: 4.686 ms/op
+Iteration  10: 4.677 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testJavaStream":
+  4.682 ±(99.9%) 0.023 ms/op [Average]
+  (min, avg, max) = (4.671, 4.682, 4.722), stdev = 0.015
+  CI (99.9%): [4.658, 4.705] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testObservable
+
+# Run progress: 75.00% complete, ETA 00:01:05
+# Fork: 1 of 1
+# Warmup Iteration   1: 3.222 ms/op
+# Warmup Iteration   2: 2.580 ms/op
+# Warmup Iteration   3: 2.481 ms/op
+# Warmup Iteration   4: 2.480 ms/op
+# Warmup Iteration   5: 2.492 ms/op
+Iteration   1: 2.499 ms/op
+Iteration   2: 2.496 ms/op
+Iteration   3: 3.025 ms/op
+Iteration   4: 3.105 ms/op
+Iteration   5: 3.112 ms/op
+Iteration   6: 3.108 ms/op
+Iteration   7: 3.107 ms/op
+Iteration   8: 3.110 ms/op
+Iteration   9: 3.106 ms/op
+Iteration  10: 3.113 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testObservable":
+  2.978 ±(99.9%) 0.385 ms/op [Average]
+  (min, avg, max) = (2.496, 2.978, 3.113), stdev = 0.255
+  CI (99.9%): [2.593, 3.363] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testObservableFromCoroPublish
+
+# Run progress: 81.25% complete, ETA 00:00:48
+# Fork: 1 of 1
+# Warmup Iteration   1: 20.320 ms/op
+# Warmup Iteration   2: 18.570 ms/op
+# Warmup Iteration   3: 18.765 ms/op
+# Warmup Iteration   4: 18.612 ms/op
+# Warmup Iteration   5: 19.044 ms/op
+Iteration   1: 18.973 ms/op
+Iteration   2: 18.821 ms/op
+Iteration   3: 18.797 ms/op
+Iteration   4: 18.763 ms/op
+Iteration   5: 18.795 ms/op
+Iteration   6: 18.804 ms/op
+Iteration   7: 18.789 ms/op
+Iteration   8: 18.951 ms/op
+Iteration   9: 18.795 ms/op
+Iteration  10: 18.875 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testObservableFromCoroPublish":
+  18.836 ±(99.9%) 0.110 ms/op [Average]
+  (min, avg, max) = (18.763, 18.836, 18.973), stdev = 0.073
+  CI (99.9%): [18.727, 18.946] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testObservableThread
+
+# Run progress: 87.50% complete, ETA 00:00:32
+# Fork: 1 of 1
+# Warmup Iteration   1: 5.222 ms/op
+# Warmup Iteration   2: 4.198 ms/op
+# Warmup Iteration   3: 3.972 ms/op
+# Warmup Iteration   4: 3.968 ms/op
+# Warmup Iteration   5: 3.959 ms/op
+Iteration   1: 3.955 ms/op
+Iteration   2: 3.975 ms/op
+Iteration   3: 3.986 ms/op
+Iteration   4: 3.995 ms/op
+Iteration   5: 3.981 ms/op
+Iteration   6: 3.999 ms/op
+Iteration   7: 3.988 ms/op
+Iteration   8: 3.989 ms/op
+Iteration   9: 3.999 ms/op
+Iteration  10: 3.999 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testObservableThread":
+  3.987 ±(99.9%) 0.021 ms/op [Average]
+  (min, avg, max) = (3.955, 3.987, 3.999), stdev = 0.014
+  CI (99.9%): [3.966, 4.007] (assumes normal distribution)
+
+
+# JMH version: 1.19
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: C:\Java\jdk1.8.0_121\jre\bin\java.exe
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 10 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmark.RangeFilterSumBenchmark.testObservableWithCoroFilter
+
+# Run progress: 93.75% complete, ETA 00:00:16
+# Fork: 1 of 1
+# Warmup Iteration   1: 145.861 ms/op
+# Warmup Iteration   2: 155.569 ms/op
+# Warmup Iteration   3: 142.955 ms/op
+# Warmup Iteration   4: 136.967 ms/op
+# Warmup Iteration   5: 135.418 ms/op
+Iteration   1: 136.956 ms/op
+Iteration   2: 103.244 ms/op
+Iteration   3: 109.698 ms/op
+Iteration   4: 103.567 ms/op
+Iteration   5: 109.853 ms/op
+Iteration   6: 103.552 ms/op
+Iteration   7: 113.859 ms/op
+Iteration   8: 138.247 ms/op
+Iteration   9: 148.822 ms/op
+Iteration  10: 137.543 ms/op
+
+
+Result "benchmark.RangeFilterSumBenchmark.testObservableWithCoroFilter":
+  120.534 ±(99.9%) 26.782 ms/op [Average]
+  (min, avg, max) = (103.244, 120.534, 148.822), stdev = 17.714
+  CI (99.9%): [93.753, 147.316] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:04:18
+
+Benchmark                                              Mode  Cnt    Score     Error  Units
+RangeFilterSumBenchmark.testBuildSequence              avgt   10    7.882 ±   0.035  ms/op
+RangeFilterSumBenchmark.testChannelPipeline            avgt   10  897.286 ± 118.483  ms/op
+RangeFilterSumBenchmark.testFlowable                   avgt   10    2.577 ±   0.042  ms/op
+RangeFilterSumBenchmark.testFlowableFromCoroPublish    avgt   10   21.606 ±   0.216  ms/op
+RangeFilterSumBenchmark.testFlowableThread             avgt   10    3.269 ±   0.013  ms/op
+RangeFilterSumBenchmark.testFlowableWithCoroFilter     avgt   10  220.807 ±   0.825  ms/op
+RangeFilterSumBenchmark.testFlux                       avgt   10    3.285 ±   2.787  ms/op
+RangeFilterSumBenchmark.testFluxFromCoroPublish        avgt   10   18.733 ±   0.227  ms/op
+RangeFilterSumBenchmark.testFluxThread                 avgt   10    4.815 ±   0.013  ms/op
+RangeFilterSumBenchmark.testFluxWithCoroFilter         avgt   10  231.631 ±   0.412  ms/op
+RangeFilterSumBenchmark.testGenerateSequence           avgt   10    5.383 ±   0.035  ms/op
+RangeFilterSumBenchmark.testJavaStream                 avgt   10    4.682 ±   0.023  ms/op
+RangeFilterSumBenchmark.testObservable                 avgt   10    2.978 ±   0.385  ms/op
+RangeFilterSumBenchmark.testObservableFromCoroPublish  avgt   10   18.836 ±   0.110  ms/op
+RangeFilterSumBenchmark.testObservableThread           avgt   10    3.987 ±   0.021  ms/op
+RangeFilterSumBenchmark.testObservableWithCoroFilter   avgt   10  120.534 ±  26.782  ms/op

@@ -3,6 +3,8 @@ package benchmark
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.experimental.DefaultDispatcher
+import kotlinx.coroutines.experimental.Unconfined
 import kotlinx.coroutines.experimental.channels.Channel
 import kotlinx.coroutines.experimental.channels.filter
 import kotlinx.coroutines.experimental.channels.fold
@@ -19,21 +21,24 @@ import reactor.core.publisher.Flux
 import java.util.concurrent.TimeUnit
 import java.util.stream.Collectors
 import java.util.stream.Stream
+import kotlin.coroutines.experimental.CoroutineContext
 import kotlin.coroutines.experimental.buildSequence
 
 fun Int.isGood() = this % 4 == 0
 
-fun Channel.Factory.range(start: Int, count: Int) = produce<Int> {
-    for (i in start until (start + count))
-        send(i)
-}
+fun Channel.Factory.range(start: Int, count: Int, context: CoroutineContext = DefaultDispatcher) =
+    produce<Int>(context) {
+        for (i in start until (start + count))
+            send(i)
+    }
 
-fun publishRange(start: Int, count: Int) = publish<Int> {
-    for (i in start until (start + count))
-        send(i)
-}
+fun publishRange(start: Int, count: Int, context: CoroutineContext = DefaultDispatcher) =
+    publish<Int>(context) {
+        for (i in start until (start + count))
+            send(i)
+    }
 
-fun generateSequenceRange(start: Int, count: Int): Sequence<Int> {
+fun sequenceGenerateRange(start: Int, count: Int): Sequence<Int> {
     var cur = start
     return generateSequence {
         if (cur > start + count) {
@@ -44,24 +49,24 @@ fun generateSequenceRange(start: Int, count: Int): Sequence<Int> {
     }
 }
 
-fun buildSequenceRange(start: Int, count: Int) = buildSequence {
+fun sequenceBuildRange(start: Int, count: Int) = buildSequence {
     for (i in start until (start + count))
         yield(i)
 }
 
-fun <T> Observable<T>.coroFilter(predicate: (T) -> Boolean) = rxObservable {
+fun <T> Observable<T>.coroutineFilter(predicate: (T) -> Boolean) = rxObservable {
     consumeEach {
         if (predicate(it)) send(it)
     }
 }
 
-fun <T> Flowable<T>.coroFilter(predicate: (T) -> Boolean) = rxFlowable {
+fun <T> Flowable<T>.coroutineFilter(predicate: (T) -> Boolean) = rxFlowable {
     consumeEach {
         if (predicate(it)) send(it)
     }
 }
 
-fun <T> Flux<T>.coroFilter(predicate: (T) -> Boolean) = flux {
+fun <T> Flux<T>.coroutineFilter(predicate: (T) -> Boolean) = flux {
     consumeEach {
         if (predicate(it)) send(it)
     }
@@ -71,12 +76,22 @@ data class IntBox(var v: Int)
 
 const val N = 1_000_000
 
-@Fork(1)
+@Fork(2, jvmArgsAppend = ["-Dkotlinx.coroutines.debug=off"])
 @Warmup(iterations = 5)
 @Measurement(iterations = 10)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 open class RangeFilterSumBenchmark {
+    @Benchmark
+    fun testBaselineLoop(): Int {
+        var sum = 0
+        for (i in 1..N) {
+            if (i.isGood())
+                sum += i
+        }
+        return sum
+    }
+
     @Benchmark
     fun testJavaStream(): Int =
         Stream
@@ -86,14 +101,20 @@ open class RangeFilterSumBenchmark {
             .collect(Collectors.summingInt { it })
 
     @Benchmark
-    fun testGenerateSequence(): Int =
-        generateSequenceRange(1, N)
+    fun testSequenceIntRange(): Int =
+        (1..N)
             .filter { it.isGood() }
             .fold(0, { a, b -> a + b })
 
     @Benchmark
-    fun testBuildSequence(): Int =
-        buildSequenceRange(1, N)
+    fun testSequenceGenerate(): Int =
+        sequenceGenerateRange(1, N)
+            .filter { it.isGood() }
+            .fold(0, { a, b -> a + b })
+
+    @Benchmark
+    fun testSequenceBuild(): Int =
+        sequenceBuildRange(1, N)
             .filter { it.isGood() }
             .fold(0, { a, b -> a + b })
 
@@ -150,7 +171,7 @@ open class RangeFilterSumBenchmark {
 
 
     @Benchmark
-    fun testObservableFromCoroPublish(): Int =
+    fun testObservableFromCoroutinePublish(): Int =
         Observable
             .fromPublisher(publishRange(1, N))
             .filter { it.isGood() }
@@ -158,7 +179,15 @@ open class RangeFilterSumBenchmark {
             .blockingGet().v
 
     @Benchmark
-    fun testFlowableFromCoroPublish(): Int =
+    fun testObservableFromCoroutinePublishUnconfined(): Int =
+        Observable
+            .fromPublisher(publishRange(1, N, Unconfined))
+            .filter { it.isGood() }
+            .collect({ IntBox(0) }, { b, x -> b.v += x })
+            .blockingGet().v
+
+    @Benchmark
+    fun testFlowableFromCoroutinePublish(): Int =
         Flowable
             .fromPublisher(publishRange(1, N))
             .filter { it.isGood() }
@@ -166,7 +195,15 @@ open class RangeFilterSumBenchmark {
             .blockingGet().v
 
     @Benchmark
-    fun testFluxFromCoroPublish(): Int =
+    fun testFlowableFromCoroutinePublishUnconfined(): Int =
+        Flowable
+            .fromPublisher(publishRange(1, N, Unconfined))
+            .filter { it.isGood() }
+            .collect({ IntBox(0) }, { b, x -> b.v += x })
+            .blockingGet().v
+
+    @Benchmark
+    fun testFluxFromCoroutinePublish(): Int =
         Flux
             .from(publishRange(1, N))
             .filter { it.isGood() }
@@ -174,26 +211,34 @@ open class RangeFilterSumBenchmark {
             .block()!!.v
 
     @Benchmark
-    fun testObservableWithCoroFilter(): Int =
+    fun testFluxFromCoroutinePublishUnconfined(): Int =
+        Flux
+            .from(publishRange(1, N, Unconfined))
+            .filter { it.isGood() }
+            .collect({ IntBox(0) }, { b, x -> b.v += x })
+            .block()!!.v
+
+    @Benchmark
+    fun testObservableWithCoroutineFilter(): Int =
         Observable
             .range(1, N)
-            .coroFilter { it.isGood() }
+            .coroutineFilter { it.isGood() }
             .collect({ IntBox(0) }, { b, x -> b.v += x })
             .blockingGet().v
 
     @Benchmark
-    fun testFlowableWithCoroFilter(): Int =
+    fun testFlowableWithCoroutineFilter(): Int =
         Flowable
             .range(1, N)
-            .coroFilter { it.isGood() }
+            .coroutineFilter { it.isGood() }
             .collect({ IntBox(0) }, { b, x -> b.v += x })
             .blockingGet().v
 
     @Benchmark
-    fun testFluxWithCoroFilter(): Int =
+    fun testFluxWithCoroutineFilter(): Int =
         Flux
             .range(1, N)
-            .coroFilter { it.isGood() }
+            .coroutineFilter { it.isGood() }
             .collect({ IntBox(0) }, { b, x -> b.v += x })
             .block()!!.v
 
@@ -204,15 +249,12 @@ open class RangeFilterSumBenchmark {
             .filter { it.isGood() }
             .fold(0, { a, b -> a + b })
     }
-}
 
-// sanity test that everything work
-fun main(args: Array<String>) {
-    val b = RangeFilterSumBenchmark()
-    for (m in b::class.java.methods) {
-        if (m.getAnnotation(Benchmark::class.java) != null) {
-            print("${m.name} = ")
-            println(m.invoke(b))
-        }
+    @Benchmark
+    fun testChannelPipelineUnconfined(): Int = runBlocking {
+        Channel
+            .range(1, N, Unconfined)
+            .filter(Unconfined) { it.isGood() }
+            .fold(0, { a, b -> a + b })
     }
 }

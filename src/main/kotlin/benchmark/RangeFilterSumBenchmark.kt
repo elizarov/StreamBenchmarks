@@ -18,6 +18,7 @@ import kotlinx.coroutines.experimental.rx2.rxFlowable
 import kotlinx.coroutines.experimental.rx2.rxObservable
 import org.openjdk.jmh.annotations.*
 import reactor.core.publisher.Flux
+import source.*
 import java.util.concurrent.TimeUnit
 import java.util.stream.Collectors
 import java.util.stream.Stream
@@ -255,6 +256,32 @@ open class RangeFilterSumBenchmark {
         Channel
             .range(1, N, Unconfined)
             .filter(Unconfined) { it.isGood() }
+            .fold(0, { a, b -> a + b })
+    }
+
+    @Benchmark
+    fun testSource(): Int = runBlocking {
+        Source
+            .range(1, N)
+            .filter { it.isGood() }
+            .fold(0, { a, b -> a + b })
+    }
+
+    @Benchmark
+    fun testSourceThread(): Int = runBlocking {
+        Source
+            .range(1, N)
+            .async()
+            .filter { it.isGood() }
+            .fold(0, { a, b -> a + b })
+    }
+
+    @Benchmark
+    fun testSourceThreadBuffer128(): Int = runBlocking {
+        Source
+            .range(1, N)
+            .async(buffer = 128)
+            .filter { it.isGood() }
             .fold(0, { a, b -> a + b })
     }
 }

@@ -2,6 +2,7 @@ package benchmark
 
 import org.junit.Test
 import org.openjdk.jmh.annotations.Benchmark
+import kotlin.system.measureTimeMillis
 import kotlin.test.assertEquals
 
 class RangeFilterSumTest {
@@ -14,9 +15,12 @@ class RangeFilterSumTest {
         for (m in b::class.java.methods) {
             if (m.getAnnotation(Benchmark::class.java) != null) {
                 print("${m.name} = ")
-                val result = m.invoke(b) as Int
-                println("$result ${if (result == expected) "[OK]" else "!!!FAILED!!!"}")
-                if (result == expected) passed++ else failed++
+                val time = measureTimeMillis {
+                    val result = m.invoke(b) as Int
+                    print("$result ${if (result == expected) "[OK]" else "!!!FAILED!!!"}")
+                    if (result == expected) passed++ else failed++
+                }
+                println(" in $time ms")
             }
         }
         println("PASSED: $passed")

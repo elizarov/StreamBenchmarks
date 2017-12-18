@@ -19,6 +19,7 @@ import kotlinx.coroutines.experimental.rx2.rxObservable
 import org.openjdk.jmh.annotations.*
 import reactor.core.publisher.Flux
 import source.*
+import srcmanbase.*
 import java.util.concurrent.TimeUnit
 import java.util.stream.Collectors
 import java.util.stream.Stream
@@ -283,5 +284,14 @@ open class RangeFilterSumBenchmark {
             .async(buffer = 128)
             .filter { it.isGood() }
             .fold(0, { a, b -> a + b })
+    }
+
+    @Benchmark
+    fun testSrcManBase(): Int = SrcManBase.noSuspend { cont ->
+        SrcManBase
+            .range(1, N)
+            .filter { it, _ -> it.isGood() }
+            .fold(0, { a, b, _ -> a + b }, cont)
+
     }
 }

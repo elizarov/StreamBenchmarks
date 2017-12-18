@@ -19,10 +19,7 @@ import kotlinx.coroutines.experimental.rx2.rxObservable
 import org.openjdk.jmh.annotations.*
 import reactor.core.publisher.Flux
 import source.*
-import sourceInline.SourceInline
-import sourceInline.filter
-import sourceInline.fold
-import sourceInline.range
+import sourceInline.*
 import srcmanbase.*
 import java.util.concurrent.TimeUnit
 import java.util.stream.Collectors
@@ -298,6 +295,14 @@ open class RangeFilterSumBenchmark {
             .fold(0, { a, b -> a + b })
     }
 
+
+    @Benchmark
+    fun testSourceInlineDeep(): Int = runBlocking {
+        SourceInline
+            .range(1, N)
+            .filter2 { it.isGood() }
+            .fold2(0, { a, b -> a + b })
+    }
 
     @Benchmark
     fun testSrcManBase(): Int = SrcManBase.noSuspend { cont ->

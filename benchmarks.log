@@ -25,6 +25,7 @@ RangeFilterSumBenchmark.testSequenceGenerate                          avgt   20 
 RangeFilterSumBenchmark.testSequenceIntRange                          avgt   20     3.218 ±   0.009  ms/op
 RangeFilterSumBenchmark.testSource                                    avgt   20    12.479 ±   0.021  ms/op
 RangeFilterSumBenchmark.testSourceInline                              avgt   20    16.342 ±   0.041  ms/op
+RangeFilterSumBenchmark.testSourceInlineDeep                          avgt   20     3.785 ±   0.006  ms/op
 RangeFilterSumBenchmark.testSourceThread                              avgt   20  3153.954 ± 445.991  ms/op
 RangeFilterSumBenchmark.testSourceThreadBuffer128                     avgt   20   222.969 ±   4.280  ms/op
 RangeFilterSumBenchmark.testSrcManBase                                avgt   20     3.159 ±   0.005  ms/op

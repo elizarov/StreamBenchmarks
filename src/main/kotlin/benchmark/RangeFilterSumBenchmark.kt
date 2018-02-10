@@ -305,6 +305,24 @@ open class RangeFilterSumBenchmark {
     }
 
     @Benchmark
+    fun testSourceInlineThreadBuffer128MpMc(): Int = runBlocking {
+        SourceInline
+                .range(1, N)
+                .asyncMpMc(buffer = 128)
+                .filter2 { it.isGood() }
+                .fold2(0, { a, b -> a + b })
+    }
+
+    @Benchmark
+    fun testSourceInlineThreadBuffer128SpSc(): Int = runBlocking {
+        SourceInline
+                .range(1, N)
+                .asyncSpSc(buffer = 128)
+                .filter2 { it.isGood() }
+                .fold2(0, { a, b -> a + b })
+    }
+
+    @Benchmark
     fun testSrcManBase(): Int = SrcManBase.noSuspend { cont ->
         SrcManBase
             .range(1, N)

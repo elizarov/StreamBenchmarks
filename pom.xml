@@ -10,12 +10,25 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jmh.version>1.19</jmh.version>
         <javac.target>1.8</javac.target>
-        <kotlin.version>1.2.0</kotlin.version>
+        <kotlin.version>1.2.40-eap-16</kotlin.version>
         <coroutines.version>0.20</coroutines.version>
 
         <jmh.generator>default</jmh.generator>
         <uberjar.name>benchmarks</uberjar.name>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>kotlin-eap</id>
+            <url>https://dl.bintray.com/kotlin/kotlin-eap</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>kotlin-eap</id>
+            <url>https://dl.bintray.com/kotlin/kotlin-eap</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencies>
         <dependency>

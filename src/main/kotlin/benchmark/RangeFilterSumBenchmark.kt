@@ -19,6 +19,7 @@ import kotlinx.coroutines.experimental.rx2.rxObservable
 import org.openjdk.jmh.annotations.*
 import reactor.core.publisher.Flux
 import source.*
+import sourceCrossinline.*
 import sourceInline.*
 import srcmanbase.*
 import java.util.concurrent.TimeUnit
@@ -114,6 +115,14 @@ open class RangeFilterSumBenchmark {
         sequenceGenerateRange(1, N)
             .filter { it.isGood() }
             .fold(0, { a, b -> a + b })
+
+    @Benchmark
+    fun testSourceCrossInline(): Int = runBlocking {
+        SourceCrossinline
+                .range(1, N)
+                .filter { it.isGood() }
+                .fold(0, { a, b -> a + b })
+    }
 
     @Benchmark
     fun testSequenceBuild(): Int =
